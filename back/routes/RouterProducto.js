@@ -3,6 +3,7 @@ import { crearProducto, mostrarProductos, mostrarProducto, editarProducto, elimi
 
 const productoRouter = express.Router();
 
+
 productoRouter.post('/', crearProducto)
 productoRouter.get('/', mostrarProductos)
 productoRouter.get('/:id', mostrarProducto)
