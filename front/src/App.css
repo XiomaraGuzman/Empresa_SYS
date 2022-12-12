@@ -1,0 +1,32 @@
+.App{
+    display: flex ;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: white;
+    
+  }
+  
+  .section{
+  width: 100vw;
+  height: 1200px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  background-image:url(./components/layout/fondo.jpg)
+  }
+  .empresasys{
+  font-size: 34pt;
+  font-weight: 900;
+  color:white;
+  
+  }
+  .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  }
