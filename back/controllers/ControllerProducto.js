@@ -34,9 +34,33 @@ const mostrarProducto = async (peticion, respuesta) =>{
 
 }
 const editarProducto = async (peticion, respuesta) =>{
+    try {
+        await Producto.update(peticion.body,{
+            where: {id: peticion.params.id}
+        })
+        respuesta.json({
+            message: 'registro Actualizado correctamente'
+        })
+        
+    } catch (error) {
+        respuesta.json({
+            message: error.message,
+        })
+    }
 }
 const  eliminarProducto = async (peticion,respuesta) =>{
-
+    try {
+        await Producto.destroy({
+            where: {id: peticion.params.id},
+        });
+        respuesta.json({
+            message: "Registro eliminado",
+        });
+    } catch (error) {
+        respuesta.json({
+            message: error.message,
+        });   
+    }
 }
 
 export {
