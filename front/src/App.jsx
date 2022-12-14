@@ -1,20 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import Header from './components/layout/Header'
-import Main from './components/layout/Main'
-import Footer from './components/layout/Footer'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Home from './components/layout/Home'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import ListadoProductos from './components/productos/ListadoProducto'
+import FormularioCrear from './components/productos/FormularioCrear'
+ 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home /> 
+  },
+  {
+    path: '/productos',
+    element: <ListadoProductos />
+  },
+  {
+    path: '/crear',
+    element: <FormularioCrear />
+  }
+])
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <Header/>
-      <Main/>
-      <Footer/>
-    </div>
+  return(
+    <section className='container'>
+      <RouterProvider router={router} />
+    </section>
   )
 }
 

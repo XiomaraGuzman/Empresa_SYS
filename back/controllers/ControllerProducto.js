@@ -1,72 +1,73 @@
-import Producto from  '../models/ModelProducto.js'
+import Producto from "../models/ModelProducto.js";
+import { check, validationResult } from "express-validator";
 
 const crearProducto = async (peticion, respuesta) => {
-    try {
-        await Producto.create(peticion.body)
-        respuesta.json({
-            message: 'Usuario creado correctamente'
-        })
-    } catch (error) {
-        respuesta.json({
-            message: `no se pudo registrar el ususario: ${error}`
-        })
-    }
+  try {
+    await Producto.create(peticion.body);
+    respuesta.json({
+      message: "Usuario creado correctamente",
+    });
+  } catch (error) {
+    respuesta.json({
+      message: `No se pudo registrar el ususario: ${error}`,
+    });
+  }
+};
+async function mostrarProductos(peticion, respuesta) {
+  try {
+    const productos = await Producto.findAll();
+    respuesta.json(productos);
+  } catch (error) {
+    respuesta.json({
+      message: "Base de datos vacia",
+    });
+  }
 }
-async function mostrarProductos(peticion, respuesta){
+const mostrarProducto = async (peticion, respuesta) => {
+  try {
+    const producto = await Producto.findOne({
+      where: { id: peticion.params.id },
+    });
+    respuesta.json(producto);
+  } catch (error) {
+    respuesta.json({
+      message: "No existe el registro en la base de datos",
+    });
+  }
+};
+const editarProducto = async (peticion, respuesta) => {
+  try {
+    await Producto.update(peticion.body, {
+      where: { id: peticion.params.id },
+    });
+    respuesta.json({
+      message: "registro Actualizado correctamente",
+    });
+  } catch (error) {
+    respuesta.json({
+      message: error.message,
+    });
+  }
+};
+async function eliminarProducto(peticion, respuesta) {
     try {
-        const productos = await Producto.findAll()
-        respuesta.json(productos)
-    } catch (error) {
-       respuesta.json({
-        message: 'base de datos vacia'
-       }) 
-    }
-} 
-const mostrarProducto = async (peticion, respuesta) =>{
-    try {
-        const producto = await Producto.findOne({where: {id: peticion.params.id}})
-        respuesta.json(producto)
-    } catch (error) {
-        respuesta.json({
-            message: `no se pudo registrar el ususario: ${error}`
-        })
-    }
-
-}
-const editarProducto = async (peticion, respuesta) =>{
-    try {
-        await Producto.update(peticion.body,{
-            where: {id: peticion.params.id}
-        })
-        respuesta.json({
-            message: 'registro Actualizado correctamente'
-        })
-        
-    } catch (error) {
-        respuesta.json({
-            message: error.message,
-        })
-    }
-}
-const  eliminarProducto = async (peticion,respuesta) =>{
-    try {
-        await Producto.destroy({
-            where: {id: peticion.params.id},
-        });
-        respuesta.json({
-            message: "Registro eliminado",
-        });
+      await Producto.destroy({
+        where: { id: peticion.params.id },
+      });
+      respuesta.json({
+        message: "Resgistro eliminado correctamente",
+      });
     } catch (error) {
         respuesta.json({
-            message: error.message,
-        });   
+        message: error.message,
+      });
     }
-}
+  }
 
 export {
-    crearProducto,
-    mostrarProductos,
-    mostrarProducto,
-    editarProducto,
-    eliminarProducto
-}
+  crearProducto,
+  mostrarProductos,
+  mostrarProducto,
+  editarProducto,
+  eliminarProducto,
+};

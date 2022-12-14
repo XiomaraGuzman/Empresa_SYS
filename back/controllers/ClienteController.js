@@ -1,49 +1,73 @@
-import Cliente from "../models/ModelCliente";
+import Cliente from "../models/ModelCliente.js";
+import { check, validationResult } from "express-validator";
 
-const crearCliente = async (req, res) => {
+const crearCliente = async (peticion, respuesta) => {
+  try {
+    await Cliente.create(peticion.body);
+    respuesta.json({
+      message: "Usuario creado correctamente",
+    });
+  } catch (error) {
+    respuesta.json({
+      message: `No se pudo registrar el ususario: ${error}`,
+    });
+  }
+};
+async function mostrarClientes(peticion, respuesta) {
+  try {
+    const clientes = await Cliente.findAll();
+    respuesta.json(clientes);
+  } catch (error) {
+    respuesta.json({
+      message: "Base de datos vacia",
+    });
+  }
+}
+const mostrarCliente = async (peticion, respuesta) => {
+  try {
+    const cliente = await Cliente.findOne({
+      where: { id: peticion.params.id },
+    });
+    respuesta.json(cliente);
+  } catch (error) {
+    respuesta.json({
+      message: "No existe el registro en la base de datos",
+    });
+  }
+};
+const editarCliente = async (peticion, respuesta) => {
+  try {
+    await Cliente.update(peticion.body, {
+      where: { id: peticion.params.id },
+    });
+    respuesta.json({
+      message: "registro Actualizado correctamente",
+    });
+  } catch (error) {
+    respuesta.json({
+      message: error.message,
+    });
+  }
+};
+async function eliminarCliente(peticion, respuesta) {
     try {
-        await Cliente.create(req.body)
-        res.json({
-            message: 'usuario creado correctamente'
-        })
+      await Cliente.destroy({
+        where: { id: peticion.params.id },
+      });
+      respuesta.json({
+        message: "Resgistro eliminado correctamente",
+      });
     } catch (error) {
-        res.json({
-            message: `no se pudo registrar el ususario: ${error}`
-        })
+        respuesta.json({
+        message: error.message,
+      });
     }
-}
-async function mostrarClientes(req, res) {
-    try {
-        const clientes = await Cliente.findAll()
-        res.json(clientes)
-    } catch (error) {
-        res.json({
-        message: 'base de datos vacia'
-       }) 
-    }
+  }
 
-}
-const mostrarCliente = async (req, res) => {
-    try {
-        const cliente = await Cliente.findOne({where: {id: peticion.params.id}})
-        res.json(cliente)
-    } catch (error) {
-        res.json({
-            message: `no se pudo registrar el ususario: ${error}`
-        })      
-    }
-}
-const editarCliente = async (req, res) => {
-
-}
-const eliminarCliente = async (req, res) => {
-
-}
-
-export{
-    crearCliente,
-    mostrarClientes,
-    mostrarCliente,
-    editarCliente,
-    eliminarCliente
-}
+export {
+ crearCliente,
+ mostrarClientes,
+ mostrarCliente,
+  editarCliente,
+  eliminarCliente,
+};

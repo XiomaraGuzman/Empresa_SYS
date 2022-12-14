@@ -1,11 +1,27 @@
-const Header = () =>{
-    return(
-        <header className="header">
-         <nav className="navbar title">
-             <span class="EmpresaSyS">SYS</span>
-            </nav>
-        </header>
-    )
-}
+import {Link} from 'react-router-dom'
 
-export default Header
+const Header = () => {
+  return (
+    <nav className="navbar ">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="">
+          Navbar
+        </a>
+        <a className="navbar-brand" href="">
+          Inicio
+        </a>
+        <Link className="navbar-brand" href="">
+          Clientes
+        </Link>
+        <Link to={'/productos'} className="navbar-brand">
+          Productos
+        </Link>
+        <a className="navbar-brand" href="">
+          Proveedores
+        </a>
+      </div>
+    </nav>
+  );
+};
+
+export default Header;
