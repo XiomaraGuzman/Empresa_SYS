@@ -4,6 +4,8 @@ import { Sequelize } from 'sequelize';
 import dataBase from './database/conexionDatabase.js';
 import productoRouter from './routes/RouterProducto.js';
 import cors from 'cors'
+import clienteRouter from './routes/RouterClientes.js';
+import proveedorRouter from './routes/RouterProveedor.js';
 
 /* Instancia de Expres y apertura de puerto */
 const app = express();
@@ -21,10 +23,13 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/productos', productoRouter)
+app.use('/clientes',clienteRouter)
+app.use('/proveedores', proveedorRouter)
 
 /* Ejecucion de servidor */
 app.listen(port, ()=> {
   console.log(`Servidor corriendo en el puerto ${port}`)
   console.log(`Servidor funcionando en http://localhost:3001`)
-  console.log(`Endpoint Clientes http://localhost:3001/productos`)
+  console.log(`Endpoint Clientes http://localhost:3001/productos/clientes/proveedores`)
+  console.log(``)
 });
