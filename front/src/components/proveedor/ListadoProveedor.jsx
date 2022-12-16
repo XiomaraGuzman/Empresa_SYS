@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 
 const apiProveedores = "http://localhost:3001/proveedores";
 
-const ListadoProveedor = () => {
+const ListadoProveedores = () => {
   const [proveedores, setProveedores] = useState([]);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const ListadoProveedor = () => {
   };
 
   return (
-    <section className="prueba">
+    <section>
       <Header />
       <section>
         <Link to={'/crearProveedor'} className="mt-5 bg-d0a478 btn">Nuevo Proveedor</Link>
@@ -57,4 +57,4 @@ const ListadoProveedor = () => {
   );
 };
 
-export default ListadoProveedor;
+export default ListadoProveedores;

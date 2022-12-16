@@ -1,5 +1,5 @@
-import Proveedor from "../models/ModelProveedor"
-import { check, validationResult } from "express-validator";
+import Proveedor from '../models/ModelProveedor.js';
+
 
 const crearProveedor = async (peticion, respuesta) => {
   try {

@@ -7,16 +7,16 @@ const Header = () => {
         <a className="navbar-brand" href="">
           <h1>SYS</h1>
         </a>
-        <Link to={'/inicio'} className="navbar-brand" href="">
+        <Link to={'/inicio'} className="navbar-brand" >
           Inicio
         </Link>
-        <Link to={'/clientes'} className="navbar-brand" href="">
+        <Link to={'/clientes'} className="navbar-brand" >
           Clientes
         </Link>
         <Link to={'/productos'} className="navbar-brand">
           Productos
         </Link>
-        <Link to={'/proveedores'} className="navbar-brand" href="">
+        <Link to={'/proveedores'} className="navbar-brand" >
           Proveedores
         </Link>
       </div>
