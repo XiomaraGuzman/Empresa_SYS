@@ -11,7 +11,7 @@ import FormularioCrearProveedor from './components/proveedor/FormularioCrearProv
  
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/inicio',
     element: <Home /> 
   },
   {
@@ -22,22 +22,22 @@ const router = createBrowserRouter([
     path: '/crear',
     element: <FormularioCrear />
   },
-  // {
-  //   path: '/clientes',
-  //   element: <ListadoClientes/>
-  // },
-  // {
-  //   path: '/crearCliente',
-  //   element: <FormularioCrearClientes/>
-  // },
-  // {
-  //   path: '/proveedor',
-  //   element: <ListadoProveedor/>
-  // },
-  // {
-  //   path: '/crearProveedor',
-  //   element: <FormularioCrearProveedor/>
-  // }
+  {
+    path: '/clientes',
+    element: <ListadoClientes/>
+  },
+  {
+    path: '/crearCliente',
+    element: <FormularioCrearClientes/>
+  },
+  {
+    path: '/proveedor',
+    element: <ListadoProveedor/>
+  },
+  {
+    path: '/crearProveedor',
+    element: <FormularioCrearProveedor/>
+  }
 
 ])
 

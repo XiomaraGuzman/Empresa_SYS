@@ -5,20 +5,20 @@ const Header = () => {
     <nav className="navbar ">
       <div className="container-fluid">
         <a className="navbar-brand" href="">
-          Navbar
+          <h1>SYS</h1>
         </a>
-        <a className="navbar-brand" href="">
+        <Link to={'/inicio'} className="navbar-brand" href="">
           Inicio
-        </a>
-        <Link className="navbar-brand" href="">
+        </Link>
+        <Link to={'/clientes'} className="navbar-brand" href="">
           Clientes
         </Link>
         <Link to={'/productos'} className="navbar-brand">
           Productos
         </Link>
-        <a className="navbar-brand" href="">
+        <Link to={'/proveedores'} className="navbar-brand" href="">
           Proveedores
-        </a>
+        </Link>
       </div>
     </nav>
   );

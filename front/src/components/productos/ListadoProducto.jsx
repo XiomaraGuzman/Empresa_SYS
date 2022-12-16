@@ -46,8 +46,8 @@ const ListadoProductos = () => {
               <td>{producto.precio}</td>
              
               <td>
-                <Link className="btn bg-orange-500" href="">Editar</Link> {"| "}
-                <Link className="btn bg-red-500" href="">Eliminar</Link>
+                <Link className="btn " href="">Editar</Link> {"| "}
+                <Link className="btn " href="">Eliminar</Link>
               </td>
             </tr>
           ))}

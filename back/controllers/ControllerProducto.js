@@ -1,5 +1,5 @@
 import Producto from "../models/ModelProducto.js";
-import { check, validationResult } from "express-validator";
+
 
 const crearProducto = async (peticion, respuesta) => {
   try {

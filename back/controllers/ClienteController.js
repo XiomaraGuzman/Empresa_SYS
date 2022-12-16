@@ -1,5 +1,5 @@
 import Cliente from "../models/ModelCliente.js";
-import { check, validationResult } from "express-validator";
+
 
 const crearCliente = async (peticion, respuesta) => {
   try {

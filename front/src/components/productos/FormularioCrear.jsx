@@ -33,51 +33,51 @@ const FormularioCrear = () => {
       <section className="row">
         <section className="col-3"></section>
         <section className="col-6">
-          <form onSubmit={guardarProducto} className="form-control w-100 mt-5 p-5">
+          <form onSubmit={guardarProducto} className="form-control ">
             <h1 className="m-5 text-4xl">Crear nuevo Producto</h1>
             <input
               value={nombre}
               onChange={(e)=> setNombre(e.target.value)}
               placeholder="Nombre"
-              className="form-control mt-3"
+              className="form-control "
               type="text"
             />
             <input
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
               placeholder="Descripcion"
-              className="form-control mt-3 mb-3"
+              className="form-control "
               type="text"
             />
              <input
               value={cantidad}
               onChange={(e) => setCantidad(e.target.value)}
               placeholder="Cantidad"
-              className="form-control mt-3 mb-3"
+              className="form-control"
               type="text"
             />
              <input
               value={referencia}
               onChange={(e) => setReferencia(e.target.value)}
               placeholder="Referencia"
-              className="form-control mt-3 mb-3"
+              className="form-control"
               type="text"
             />
               <input
               value={precio}
               onChange={(e) => setPrecio(e.target.value)}
               placeholder="Precio"
-              className="form-control mt-3 mb-3"
+              className="form-control"
               type="text"
             /> 
             <section className="">
               <input
                 value={"Guardar"}
-                className="btn bg-orange-600 form-control"
+                className="btn form-control"
                 type="submit"
               />
               <Link
-                className="btn bg-orange-600 form-control"
+                className="btn form-control"
                 to={"/productos"}
               >
                 Cancelar

@@ -1,10 +1,28 @@
 import React from 'react';
-import ListadoProductos from '../productos/ListadoProducto'
+import Header from './Header';
 
 const Home = () => {
   return (
     <main className='container'>
-      <ListadoProductos />
+       <section>
+      <Header/>
+      </section>
+      <section className='hh'>
+      <section  >
+        <h1> Un buen perfume te hace </h1>
+      </section>
+
+      <section>
+      <h1>sentir presente</h1>
+      </section>
+      
+      <section>
+        <h3>aunque estes ausente...</h3>
+      </section>
+      </section>
+      
+     
+    
     </main>
   )
 }
