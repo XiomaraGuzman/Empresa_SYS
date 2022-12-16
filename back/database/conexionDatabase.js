@@ -6,4 +6,4 @@ const dataBase = new Sequelize('empresasys', 'root', '', {
   dialect: 'mysql'
 })
 
-export default dataBase
+ export default dataBase

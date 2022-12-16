@@ -34,7 +34,7 @@ const FormularioCrearProveedor = () => {
         <section className="col-3"></section>
         <section className="col-6">
           <form onSubmit={guardarProveedor} className="form-control w-100 mt-5 p-5">
-            <h1 className="m-5 text-4xl">Crear nuevo Proveedor</h1>
+            <h1 className="m-5 text-4xl">Crear Nuevo Proveedor</h1>
             <input
               value={NIT}
               onChange={(e)=> setNIT(e.target.value)}

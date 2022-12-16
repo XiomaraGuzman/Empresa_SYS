@@ -36,7 +36,7 @@ const FormularioCrearCliente = () => {
         <section className="col-3"></section>
         <section className="col-6">
           <form onSubmit={guardarCliente} className="form-control ">
-            <h1 className="m-5 text-4xl">Crear nuevo Cliente</h1>
+            <h1 className="m-5 text-4xl">Crear Nuevo Cliente</h1>
             <input
               value={nombre}
               onChange={(e)=> setNombre(e.target.value)}

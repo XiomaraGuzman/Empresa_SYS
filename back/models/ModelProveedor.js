@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
-import dataBase from "../database/conexionDatabase";
+import dataBase from "../database/conexionDatabase.js";
 
-const Proveedor = dataBase.define('proveedor', {
+const Proveedor = dataBase.define('proveedores', {
     NIT: {
         type: DataTypes.STRING
     },
